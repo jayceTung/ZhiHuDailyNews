@@ -3,7 +3,7 @@ package com.asuper.zhihudailynews.network;
 
 import com.asuper.zhihudailynews.Bean.DailyListBean;
 import com.asuper.zhihudailynews.Bean.LaunchImageBean;
-import com.asuper.zhihudailynews.base.ZhihuApp;
+import com.asuper.zhihudailynews.utils.FileUtil;
 import com.asuper.zhihudailynews.utils.Log;
 import com.asuper.zhihudailynews.utils.NetWorkUtil;
 
@@ -65,7 +65,7 @@ public class ZhiHuRetrofitHelper {
         if (mOkHttpClient == null) {
             synchronized (ZhiHuRetrofitHelper.class) {
                 if (mOkHttpClient == null) {
-                    Cache cache = new Cache(new File(ZhihuApp.getContext().getCacheDir(), "HttpCache")
+                    Cache cache = new Cache(new File(new File(FileUtil.APP_CACHE_PATH), "HttpCache")
                             , 1024 * 1024 * 100);
 
                     Interceptor mRewriteCacheControlInterceptor = new Interceptor() {

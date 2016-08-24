@@ -16,6 +16,7 @@ package com.asuper.zhihudailynews.base;
 import android.content.Context;
 
 import com.asuper.zhihudailynews.utils.ConfigConstants;
+import com.asuper.zhihudailynews.utils.FileUtil;
 import com.facebook.cache.disk.DiskCacheConfig;
 import com.facebook.common.internal.Sets;
 import com.facebook.common.internal.Supplier;
@@ -25,6 +26,8 @@ import com.facebook.imagepipeline.core.ImagePipelineConfig;
 import com.facebook.imagepipeline.listener.RequestListener;
 import com.facebook.imagepipeline.listener.RequestLoggingListener;
 import com.squareup.okhttp.OkHttpClient;
+
+import java.io.File;
 
 /**
  * Creates ImagePipeline configuration for the sample app
@@ -84,7 +87,7 @@ public class ImagePipelineConfigFactory {
                         })
                 .setMainDiskCacheConfig(
                         DiskCacheConfig.newBuilder()
-                                .setBaseDirectoryPath(context.getApplicationContext().getCacheDir())
+                                .setBaseDirectoryPath(new File(FileUtil.APP_CACHE_PATH))
                                 .setBaseDirectoryName(IMAGE_PIPELINE_CACHE_DIR)
                                 .setMaxCacheSize(ConfigConstants.MAX_DISK_CACHE_SIZE)
                                 .build());

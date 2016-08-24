@@ -28,16 +28,15 @@ public class ZhihuApp extends MultiDexApplication {
 
         sContext = this;
 
+        //init file
+        FileUtil.initFile();
+
         //fresco config
         FLog.setMinimumLoggingLevel(FLog.WARN);
         Fresco.initialize(this, ImagePipelineConfigFactory.getOkHttpImagePipelineConfig(this));
 
         //catch exception
         Thread.setDefaultUncaughtExceptionHandler(new SimpleUncaughtExceptionHandler());
-
-        //init file
-        FileUtil.initFile();
-
     }
 
     public static Context getContext() {
