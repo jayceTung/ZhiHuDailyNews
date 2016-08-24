@@ -1,5 +1,6 @@
 package com.asuper.zhihudailynews.ui.fragment;
 
+import com.asuper.zhihudailynews.R;
 import com.asuper.zhihudailynews.base.LazyFragment;
 
 /**
@@ -9,7 +10,7 @@ public class DailyListFragment extends LazyFragment {
 
     @Override
     public int getLayoutId() {
-        return 0;
+        return R.layout.fragment_daily_list;
     }
 
     @Override

@@ -21,8 +21,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-            android:name=".ui.activity.LaunchActivity">
+            android:name=".ui.activity.LaunchActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
@@ -31,7 +31,7 @@
 
         <!--主界面-->
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.activity.MainActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
 

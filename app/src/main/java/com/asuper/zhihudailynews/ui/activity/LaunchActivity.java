@@ -6,13 +6,15 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.TextView;
 
 import com.asuper.zhihudailynews.Bean.LaunchImageBean;
-import com.asuper.zhihudailynews.MainActivity;
 import com.asuper.zhihudailynews.R;
+import com.asuper.zhihudailynews.base.Constant;
+import com.asuper.zhihudailynews.base.ExitAppReceiver;
 import com.asuper.zhihudailynews.presenter.impl.LaunchPresenter;
 import com.asuper.zhihudailynews.utils.ConfigConstants;
 import com.asuper.zhihudailynews.utils.Log;
@@ -33,6 +35,7 @@ public class LaunchActivity extends Activity
     private static final int ANIMATION_DURATION = 2000;
     private static final float SCALE_END = 1.13F;
 
+    private ExitAppReceiver mExitAppReceiver = new ExitAppReceiver();
     private LaunchPresenter mLaunchPresenter;
 
     @Bind(R.id.iv_luanch)
@@ -50,6 +53,19 @@ public class LaunchActivity extends Activity
         ButterKnife.bind(this);
         mLaunchPresenter = new LaunchPresenter(this);
         mLaunchPresenter.loadData();
+        registerReceiver();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(mExitAppReceiver);
+    }
+
+    private void registerReceiver() {
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(Constant.EXIT_APP_ACTION);
+        registerReceiver(mExitAppReceiver, filter);
     }
 
     @Override
