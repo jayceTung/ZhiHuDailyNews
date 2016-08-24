@@ -14,11 +14,16 @@ public class ZhihuApp extends MultiDexApplication {
     public static Context sContext;
 
     @Override
-    public void onCreate() {
-        super.onCreate();
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
 
         //65536 methods
         MultiDex.install(this);
+    }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
 
         sContext = this;
 
