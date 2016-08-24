@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
 
+import com.asuper.zhihudailynews.utils.FileUtil;
 import com.facebook.common.logging.FLog;
 import com.facebook.drawee.backends.pipeline.Fresco;
 
@@ -11,7 +12,7 @@ import com.facebook.drawee.backends.pipeline.Fresco;
  * Created by Super on 2016/8/4.
  */
 public class ZhihuApp extends MultiDexApplication {
-    public static Context sContext;
+    private static Context sContext;
 
     @Override
     protected void attachBaseContext(Context base) {
@@ -33,6 +34,9 @@ public class ZhihuApp extends MultiDexApplication {
 
         //catch exception
         Thread.setDefaultUncaughtExceptionHandler(new SimpleUncaughtExceptionHandler());
+
+        //init file
+        FileUtil.initFile();
 
     }
 
