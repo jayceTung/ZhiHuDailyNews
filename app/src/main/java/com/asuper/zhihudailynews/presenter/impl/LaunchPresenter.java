@@ -19,11 +19,6 @@ public class LaunchPresenter implements Presenter<LaunchView>, ILaunchPresenter 
         mLaunchModel = new LaunchModel(this);
     }
 
-    public void loadData() {
-        mLaunchView.showProgress();
-        mLaunchModel.loadData(LaunchActivity.RESOLUTION);
-    }
-
     @Override
     public void attachView(LaunchView launchView) {
         mLaunchView = launchView;
@@ -35,10 +30,15 @@ public class LaunchPresenter implements Presenter<LaunchView>, ILaunchPresenter 
     }
 
     @Override
+    public void loadData() {
+        mLaunchView.showProgress();
+        mLaunchModel.loadData(LaunchActivity.RESOLUTION);
+    }
+
+    @Override
     public void loadDataSuccess(LaunchImageBean launchImageBean) {
         mLaunchView.showData(launchImageBean);
         mLaunchView.hideProgress();
-
     }
 
     @Override

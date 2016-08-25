@@ -33,6 +33,7 @@ public abstract class AbsBaseActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        ButterKnife.unbind(this);
         unregisterReceiver(mExitAppReceiver);
     }
 

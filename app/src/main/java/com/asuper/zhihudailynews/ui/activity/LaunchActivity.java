@@ -15,6 +15,7 @@ import com.asuper.zhihudailynews.Bean.LaunchImageBean;
 import com.asuper.zhihudailynews.R;
 import com.asuper.zhihudailynews.base.Constant;
 import com.asuper.zhihudailynews.base.ExitAppReceiver;
+import com.asuper.zhihudailynews.presenter.ILaunchPresenter;
 import com.asuper.zhihudailynews.presenter.impl.LaunchPresenter;
 import com.asuper.zhihudailynews.utils.ConfigConstants;
 import com.asuper.zhihudailynews.utils.Log;
@@ -36,7 +37,7 @@ public class LaunchActivity extends Activity
     private static final float SCALE_END = 1.13F;
 
     private ExitAppReceiver mExitAppReceiver = new ExitAppReceiver();
-    private LaunchPresenter mLaunchPresenter;
+    private ILaunchPresenter mLaunchPresenter;
 
     @Bind(R.id.iv_luanch)
     SimpleDraweeView mLaunchImage;

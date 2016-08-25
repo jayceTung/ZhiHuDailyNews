@@ -3,15 +3,15 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/item_one"
-            android:icon="@mipmap/ic_launcher"
-            android:title="我的动态"></item>
+            android:icon="@mipmap/ic_profile_answer"
+            android:title="@string/index"></item>
         <item
             android:id="@+id/item_two"
-            android:icon="@mipmap/ic_launcher"
-            android:title="我的留言"></item>
+            android:icon="@mipmap/ic_profile_article"
+            android:title="@string/news"></item>
         <item
             android:id="@+id/item_three"
-            android:icon="@mipmap/ic_launcher"
-            android:title="附近的人"></item>
+            android:icon="@mipmap/ic_profile_column"
+            android:title="@string/article"></item>
     </group>
 </menu>

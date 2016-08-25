@@ -1,8 +1,8 @@
 package com.asuper.zhihudailynews.base;
 
-import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +30,7 @@ public abstract class LazyFragment extends Fragment {
         ButterKnife.bind(this, rootView);
         initView();
         initEvent();
+        initLoadData();
     }
 
     @Override
@@ -43,4 +44,6 @@ public abstract class LazyFragment extends Fragment {
     public abstract void initView();
 
     public abstract void initEvent();
+
+    public abstract void initLoadData();
 }

@@ -16,7 +16,7 @@ public enum ApiHost {
         this.release = release;
     }
 
-    public String vaule() {
+    public String value() {
         if (BuildConfig.API_HOST) {
             return release;
         } else {

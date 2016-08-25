@@ -45,7 +45,7 @@ public class ZhiHuRetrofitHelper {
                     initOkHttpClient();
 
                     Retrofit mRetrofit = new Retrofit.Builder()
-                            .baseUrl(ApiHost.ZHIHU_LAST_URL.vaule())
+                            .baseUrl(ApiHost.ZHIHU_LAST_URL.value())
                             .client(mOkHttpClient)
                             .addConverterFactory(GsonConverterFactory.create())
                             .addCallAdapterFactory(RxJavaCallAdapterFactory.create())

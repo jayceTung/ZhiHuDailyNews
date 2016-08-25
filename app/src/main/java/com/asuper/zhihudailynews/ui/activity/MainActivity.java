@@ -12,6 +12,7 @@ import android.view.View;
 
 import com.asuper.zhihudailynews.R;
 import com.asuper.zhihudailynews.base.AbsBaseActivity;
+import com.asuper.zhihudailynews.ui.fragment.DailyListFragment;
 import com.asuper.zhihudailynews.utils.Log;
 
 import java.util.ArrayList;
@@ -42,7 +43,13 @@ public class MainActivity extends AbsBaseActivity {
 
     @Override
     public void initView(Bundle savedInstanceState) {
+        addFragment();
+        showFragment(0);
+    }
 
+    private void addFragment() {
+        fragments.clear();
+        fragments.add(new DailyListFragment());
     }
 
     @Override
@@ -73,18 +80,18 @@ public class MainActivity extends AbsBaseActivity {
             public boolean onNavigationItemSelected(MenuItem menuItem) {
                 switch (menuItem.getItemId())
                 {
-//                    case R.id.item_one:
-//                        showFragment();
-//                        mToolbar.setTitle("我的动态");
-//                        break;
-//                    case R.id.item_two:
-//                        showFragment();
-//                        mToolbar.setTitle("我的留言");
-//                        break;
-//                    case R.id.item_three:
-//                        showFragment();
-//                        mToolbar.setTitle("附近的人");
-//                        break;
+                    case R.id.item_one:
+                        showFragment(0);
+                        mToolbar.setTitle(R.string.index);
+                        break;
+                    case R.id.item_two:
+                        showFragment(0);
+                        mToolbar.setTitle(R.string.news);
+                        break;
+                    case R.id.item_three:
+                        showFragment(0);
+                        mToolbar.setTitle(R.string.article);
+                        break;
                 }
                 menuItem.setChecked(true);//点击了把它设为选中状态
                 mDrawerLayout.closeDrawers();//关闭抽屉
@@ -93,14 +100,13 @@ public class MainActivity extends AbsBaseActivity {
         });
     }
 
-    private void showFragment(Fragment fragment) {
-        getSupportFragmentManager().beginTransaction().replace(R.id.content, fragment).commit();
+    private void showFragment(int position) {
+        getSupportFragmentManager().beginTransaction().replace(R.id.content, fragments.get(position)).commit();
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
-        return  true;
+        return true;
     }
 
     @Override
