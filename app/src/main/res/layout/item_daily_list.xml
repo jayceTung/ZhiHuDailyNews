@@ -39,8 +39,12 @@
             android:layout_height="80dp"
             android:layout_alignParentRight="true"
             android:layout_centerInParent="true"
-            android:scaleType="fitCenter"
-            android:src="@mipmap/account_avatar"/>
+            app:placeholderImage="@mipmap/account_avatar"
+            app:placeholderImageScaleType="fitCenter"
+            app:actualImageScaleType="focusCrop"
+            app:roundedCornerRadius="10dp"
+            app:failureImage="@mipmap/account_avatar"
+            app:failureImageScaleType="fitCenter"/>
 
         <ImageView
             android:id="@+id/item_more_pic"

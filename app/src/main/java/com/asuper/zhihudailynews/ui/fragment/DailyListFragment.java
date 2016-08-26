@@ -2,6 +2,7 @@ package com.asuper.zhihudailynews.ui.fragment;
 
 import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.TypedValue;
 
@@ -10,7 +11,7 @@ import com.asuper.zhihudailynews.R;
 import com.asuper.zhihudailynews.base.LazyFragment;
 import com.asuper.zhihudailynews.presenter.ILatestNewsPresenter;
 import com.asuper.zhihudailynews.presenter.impl.LatestNewsPresenter;
-import com.asuper.zhihudailynews.ui.adapter.DailyList;
+import com.asuper.zhihudailynews.ui.adapter.DailyListAdapter;
 import com.asuper.zhihudailynews.utils.Log;
 import com.asuper.zhihudailynews.view.LatestNewsView;
 
@@ -29,7 +30,7 @@ public class DailyListFragment extends LazyFragment
     SwipeRefreshLayout mSwipeRefreshLayout;
 
     private ILatestNewsPresenter mPresenter;
-    private DailyList mDailyListAdapter;
+    private DailyListAdapter mDailyListAdapter;
 
     @Override
     public int getLayoutId() {
@@ -43,7 +44,9 @@ public class DailyListFragment extends LazyFragment
         mSwipeRefreshLayout.setProgressViewOffset(false, 0, (int) TypedValue
                 .applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources()
                         .getDisplayMetrics()));
-        mDailyListAdapter = new DailyList(getActivity());
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mDailyListAdapter = new DailyListAdapter(getActivity());
+        mRecyclerView.setAdapter(mDailyListAdapter);
     }
 
     @Override
@@ -69,7 +72,6 @@ public class DailyListFragment extends LazyFragment
             mSwipeRefreshLayout.setRefreshing(false);
         }
         mDailyListAdapter.addData(dailyListBean.getStories());
-        mRecyclerView.setAdapter(mDailyListAdapter);
         Snackbar.make(getView(), dailyListBean.getDate(), Snackbar.LENGTH_SHORT).show();
     }
 

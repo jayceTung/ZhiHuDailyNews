@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by Super on 2016/8/4.
  */
-public class DailyBean implements Parcelable{
+public class DailyBean implements Parcelable {
     private int type;
 
     private int id;
@@ -26,99 +26,82 @@ public class DailyBean implements Parcelable{
     private String Date;
 
 
-
-    public String getDate()
-    {
+    public String getDate() {
 
         return Date;
     }
 
-    public void setDate(String date)
-    {
+    public void setDate(String date) {
 
         Date = date;
     }
 
-    public int getType()
-    {
+    public int getType() {
 
         return type;
     }
 
-    public void setType(int type)
-    {
+    public void setType(int type) {
 
         this.type = type;
     }
 
-    public int getId()
-    {
+    public int getId() {
 
         return id;
     }
 
-    public void setId(int id)
-    {
+    public void setId(int id) {
 
         this.id = id;
     }
 
-    public String getGa_prefix()
-    {
+    public String getGa_prefix() {
 
         return ga_prefix;
     }
 
-    public void setGa_prefix(String ga_prefix)
-    {
+    public void setGa_prefix(String ga_prefix) {
 
         this.ga_prefix = ga_prefix;
     }
 
-    public String getTitle()
-    {
+    public String getTitle() {
 
         return title;
     }
 
-    public void setTitle(String title)
-    {
+    public void setTitle(String title) {
 
         this.title = title;
     }
 
-    public List<String> getImages()
-    {
+    public List<String> getImages() {
 
         return images;
     }
 
-    public void setImages(List<String> images)
-    {
+    public void setImages(List<String> images) {
 
         this.images = images;
     }
 
-    public boolean isRead()
-    {
+    public boolean isRead() {
 
         return isRead;
     }
 
-    public void setRead(boolean read)
-    {
+    public void setRead(boolean read) {
 
         isRead = read;
     }
 
-    public boolean isMultipic()
-    {
+    public boolean isMultipic() {
 
         return multipic;
     }
 
-    public void setMultipic(boolean multipic)
-    {
+    public void setMultipic(boolean multipic) {
 
         this.multipic = multipic;
     }

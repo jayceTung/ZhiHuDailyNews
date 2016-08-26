@@ -39,7 +39,7 @@ public class LaunchActivity extends Activity
     private ExitAppReceiver mExitAppReceiver = new ExitAppReceiver();
     private ILaunchPresenter mLaunchPresenter;
 
-    @Bind(R.id.iv_luanch)
+    @Bind(R.id.iv_launch)
     SimpleDraweeView mLaunchImage;
 
     @Bind(R.id.tv_form)
