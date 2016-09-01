@@ -30,7 +30,6 @@
             android:maxLines="3"
             android:maxWidth="230dp"
             android:padding="2dp"
-            android:textColor="@color/font_normal"
             android:textSize="18sp"/>
 
         <com.facebook.drawee.view.SimpleDraweeView

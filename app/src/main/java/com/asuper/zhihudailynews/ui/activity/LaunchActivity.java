@@ -52,6 +52,7 @@ public class LaunchActivity extends Activity
         RESOLUTION = getResources().getDisplayMetrics().widthPixels + "*" + getResources().getDisplayMetrics().heightPixels;
         setContentView(R.layout.activity_luanch);
         ButterKnife.bind(this);
+        getWindow().setBackgroundDrawable(null);//overdraw
         mLaunchPresenter = new LaunchPresenter(this);
         mLaunchPresenter.loadData();
         registerReceiver();

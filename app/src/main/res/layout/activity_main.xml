@@ -38,7 +38,7 @@
         android:overScrollMode="never"
         android:scrollbars="none"
         app:headerLayout="@layout/nav_header"
-        app:itemTextColor="#000000"
+        app:itemTextColor="@color/color_unread"
         app:menu="@menu/menu_nav"/>
 
 </android.support.v4.widget.DrawerLayout>

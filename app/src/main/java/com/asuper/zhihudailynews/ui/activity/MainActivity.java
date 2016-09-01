@@ -55,6 +55,7 @@ public class MainActivity extends AbsBaseActivity {
     @Override
     public void initToolBar() {
         Log.i(TAG, "initToolBar");
+        getWindow().setBackgroundDrawable(null);
         mToolbar.setTitle(R.string.app_name);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
