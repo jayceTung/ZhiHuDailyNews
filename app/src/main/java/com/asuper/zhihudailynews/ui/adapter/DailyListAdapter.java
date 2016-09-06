@@ -87,7 +87,7 @@ public class DailyListAdapter extends RecyclerView.Adapter<DailyListAdapter.Item
             if (position == 0) {
                 timeStr = "今日热闻";
             } else {
-                timeStr = DateUtil.formatDate(dailyBean.getDate()) + "  " + WeekUtil.getWeek(dailyBean.getDate());
+                timeStr = DateUtil.formatDate(mContext, dailyBean.getDate()) + "  " + WeekUtil.getWeek(mContext, dailyBean.getDate());
             }
             itemTimeViewHolder.mTime.setText(timeStr);
         } else {

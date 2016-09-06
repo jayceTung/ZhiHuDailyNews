@@ -42,7 +42,6 @@ public class DailyList extends RecyclerView.Adapter<DailyList.ItemContentViewHol
 
 
     public DailyList(Context context) {
-
         this.mContext = context;
 //        this.mDailyDao = new DailyDao(context);
     }
@@ -86,7 +85,7 @@ public class DailyList extends RecyclerView.Adapter<DailyList.ItemContentViewHol
             if (position == 0) {
                 timeStr = "今日热闻";
             } else {
-                timeStr = DateUtil.formatDate(dailyBean.getDate()) + "  " + WeekUtil.getWeek(dailyBean.getDate());
+                timeStr = DateUtil.formatDate(mContext, dailyBean.getDate()) + "  " + WeekUtil.getWeek(mContext, dailyBean.getDate());
             }
             itemTimeViewHolder.mTime.setText(timeStr);
         } else {

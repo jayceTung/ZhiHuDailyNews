@@ -1,5 +1,9 @@
 package com.asuper.zhihudailynews.utils;
 
+import android.content.Context;
+
+import com.asuper.zhihudailynews.R;
+
 import java.text.SimpleDateFormat;
 
 public class DateUtil {
@@ -8,11 +12,12 @@ public class DateUtil {
 
     }
 
-    public static String formatDate(String date) {
+    public static String formatDate(Context context, String date) {
 
         String dateFormat = null;
         try {
-            dateFormat = date.substring(4, 6) + "月" + date.substring(6, 8) + "日";
+            dateFormat = date.substring(4, 6) + context.getString(R.string.month)
+                    + date.substring(6, 8) + context.getString(R.string.date);
         } catch (Exception e) {
             e.printStackTrace();
         }
