@@ -34,6 +34,7 @@ public class ZhiHuRetrofitHelper {
     private static ZhiHuRetrofitHelper instance;
 
     public static final int CACHE_TIME_LONG = 60 * 60 * 24 * 7;
+    public static final int REFRESH_TIME_LONG = 60;
 
     private ZhiHuRetrofitHelper() {
     }
@@ -65,7 +66,7 @@ public class ZhiHuRetrofitHelper {
         if (mOkHttpClient == null) {
             synchronized (ZhiHuRetrofitHelper.class) {
                 if (mOkHttpClient == null) {
-                    Cache cache = new Cache(new File(new File(FileUtil.APP_CACHE_PATH), "HttpCache")
+                    final Cache cache = new Cache(new File(new File(FileUtil.APP_CACHE_PATH), "HttpCache")
                             , 1024 * 1024 * 100);
 
                     Interceptor mRewriteCacheControlInterceptor = new Interceptor() {
@@ -73,25 +74,46 @@ public class ZhiHuRetrofitHelper {
                         public Response intercept(Chain chain) throws IOException {
                             Request request = chain.request();
 
-                            Log.i(TAG, String.format("Sending request %s on %s%n%s",
-                                    request.url(), chain.connection(), request.headers()));
+                            final CacheControl.Builder builder = new CacheControl.Builder();
+//                            builder.noCache();//不使用缓存，全部走网络
+//                            builder.noStore();//不使用缓存，也不存储缓存
+//                            builder.onlyIfCached();//只使用缓存
+//                            builder.noTransform();//禁止转码
+                            builder.maxAge(10, TimeUnit.SECONDS);//指示客户机可以接收生存期不大于指定时间的响应。
+//                            builder.maxStale(10, TimeUnit.SECONDS);//指示客户机可以接收超出超时期间的响应消息
+//                            builder.minFresh(10, TimeUnit.SECONDS);//指示客户机可以接收响应时间小于当前时间加上指定时间的响应
+                            CacheControl cache = builder.build();//cacheControl
 
                             if (!NetWorkUtil.isNetworkConnected()) {
                                 request = request.newBuilder().cacheControl(CacheControl.FORCE_CACHE).build();
+                            } else {
+                                request = request.newBuilder().cacheControl(cache).build();
                             }
+
+                            Log.i(TAG, String.format("Sending request %s on %s%n%s",
+                                    request.url(), chain.connection(), request.headers()));
+
+
                             Response originalResponse = chain.proceed(request);
 
-                            Log.i(TAG, String.format("Received response for %s in %n%s",
-                                    originalResponse.request().url(), originalResponse.headers()));
+
+                            Response.Builder responseBuilder;
 
                             if (NetWorkUtil.isNetworkConnected()) {
                                 String cacheControl = request.cacheControl().toString();
-                                return originalResponse.newBuilder().header("cache-Control", cacheControl)
-                                        .removeHeader("Pragma").build();
+                                responseBuilder = originalResponse.newBuilder().header("Cache-Control", "max-age=" + REFRESH_TIME_LONG)
+                                        .removeHeader("Pragma");
                             } else {
-                                return originalResponse.newBuilder().header("Cache-Control", "public, only-if-cached, max-stale=" + CACHE_TIME_LONG)
-                                        .removeHeader("Pragma").build();
+                                responseBuilder = originalResponse.newBuilder().header("Cache-Control", "public, only-if-cached, max-stale=" + CACHE_TIME_LONG)
+                                        .removeHeader("Pragma");
                             }
+
+
+                            Log.i(TAG, String.format("Received response for %s in %n%s",
+                                    responseBuilder.build().request().url(), responseBuilder.build().headers()));
+
+                            return responseBuilder.build();
+
                         }
                     };
 
@@ -102,6 +124,8 @@ public class ZhiHuRetrofitHelper {
                             .addInterceptor(interceptor)
                             .retryOnConnectionFailure(true)
                             .connectTimeout(15, TimeUnit.SECONDS)
+                            .readTimeout(20, TimeUnit.SECONDS)
+                            .writeTimeout(20, TimeUnit.SECONDS)
                             .build();
                 }
             }
