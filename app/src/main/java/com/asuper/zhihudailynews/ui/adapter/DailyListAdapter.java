@@ -32,25 +32,19 @@ public class DailyListAdapter extends RecyclerView.Adapter<DailyListAdapter.Item
     private static final String TAG = "DailyListAdapter";
 
     private static final int ITEM_CONTENT = 0;
-
     private static final int ITEM_TIME = 1;
 
     private List<DailyBean> dailys = new ArrayList<>();
-
 //    private DailyDao mDailyDao;
-
     private Context mContext;
 
-
     public DailyListAdapter(Context context) {
-
         this.mContext = context;
 //        this.mDailyDao = new DailyDao(context);
     }
 
     @Override
     public int getItemViewType(int position) {
-
         if (position == 0) {
             return ITEM_TIME;
         }
@@ -64,7 +58,6 @@ public class DailyListAdapter extends RecyclerView.Adapter<DailyListAdapter.Item
 
     @Override
     public ItemContentViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
         if (viewType == ITEM_TIME) {
             return new ItemTimeViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_daily_list_time, parent, false));
         } else {
@@ -74,7 +67,6 @@ public class DailyListAdapter extends RecyclerView.Adapter<DailyListAdapter.Item
 
     @Override
     public void onBindViewHolder(ItemContentViewHolder holder, int position) {
-
         DailyBean dailyBean = dailys.get(position);
         if (dailyBean == null) {
             return;
@@ -161,6 +153,15 @@ public class DailyListAdapter extends RecyclerView.Adapter<DailyListAdapter.Item
             this.dailys.addAll(dailys);
             notifyDataSetChanged();
         }
+    }
+
+    public void allClear() {
+        dailys.clear();
+    }
+
+    public void destroy() {
+        allClear();
+        mContext = null;
     }
 
     @Override

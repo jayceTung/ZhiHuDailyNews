@@ -68,13 +68,7 @@ dependencies {
     compile 'com.facebook.stetho:stetho:1.3.1'
     compile 'com.facebook.stetho:stetho-okhttp3:1.3.1'
     compile 'com.jakewharton:butterknife:7.0.1'
-    compile 'com.yalantis:phoenix:1.2.3'
-    compile 'org.jsoup:jsoup:1.8.3'
-    compile 'com.github.chrisbanes:PhotoView:1.3.0'
-    compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.0.0@aar'
     compile 'com.android.support:support-v13:23.4.0'
-    //Bmob后端云
-    compile 'cn.bmob.android:bmob-sdk:3.4.6'
     //Rx权限管理
     compile 'com.tbruyelle.rxpermissions:rxpermissions:0.7.0@aar'
     //fresco
@@ -84,4 +78,6 @@ dependencies {
     //greendao
     compile 'org.greenrobot:greendao:3.1.0'
     compile 'org.greenrobot:greendao-generator:3.1.0'
+
+    compile 'com.roughike:bottom-bar:2.0.2'
 }

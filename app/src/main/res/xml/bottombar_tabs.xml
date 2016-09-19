@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        id="@+id/item_one"
+        icon="@mipmap/ic_profile_answer"
+        title="@string/index"/>
+    <tab
+        id="@+id/item_two"
+        icon="@mipmap/ic_profile_article"
+        title="@string/news"/>
+    <tab
+        id="@+id/item_three"
+        icon="@mipmap/ic_profile_column"
+        title="@string/article"
+        />
+    <tab
+        id="@+id/item_three"
+        icon="@mipmap/ic_profile_column"
+        title="@string/article"
+        />
+</tabs>

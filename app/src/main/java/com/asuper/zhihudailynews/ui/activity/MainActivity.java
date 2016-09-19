@@ -1,19 +1,19 @@
 package com.asuper.zhihudailynews.ui.activity;
 
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
+import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.asuper.zhihudailynews.R;
 import com.asuper.zhihudailynews.base.AbsBaseActivity;
 import com.asuper.zhihudailynews.ui.fragment.DailyListFragment;
 import com.asuper.zhihudailynews.utils.Log;
+import com.roughike.bottombar.BottomBar;
+import com.roughike.bottombar.OnTabSelectListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,10 +28,8 @@ public class MainActivity extends AbsBaseActivity {
 
     @Bind(R.id.toolbar)
     Toolbar mToolbar;
-    @Bind(R.id.drawer_layout)
-    DrawerLayout mDrawerLayout;
     @Bind(R.id.nav_view)
-    NavigationView mNavigationView;
+    BottomBar mNavigationView;
 
     private ActionBarDrawerToggle mDrawerToggle;
     private List<Fragment> fragments = new ArrayList<>();
@@ -57,46 +55,21 @@ public class MainActivity extends AbsBaseActivity {
         Log.i(TAG, "initToolBar");
         getWindow().setBackgroundDrawable(null);
         mToolbar.setTitle(R.string.app_name);
-        setSupportActionBar(mToolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar, R.string.drawer_open,
-                R.string.drawer_close) {
+        mNavigationView.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
-            public void onDrawerOpened(View drawerView) {
-                super.onDrawerOpened(drawerView);
-                setTitle(getString(R.string.app_name));
-            }
-
-            @Override
-            public void onDrawerClosed(View drawerView) {
-                super.onDrawerClosed(drawerView);
-            }
-        };
-        mDrawerToggle.syncState();
-        mDrawerLayout.addDrawerListener(mDrawerToggle);
-
-        mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(MenuItem menuItem) {
-                switch (menuItem.getItemId())
-                {
+            public void onTabSelected(@IdRes int tabId) {
+                switch (tabId) {
                     case R.id.item_one:
                         showFragment(0);
-                        mToolbar.setTitle(R.string.index);
                         break;
                     case R.id.item_two:
                         showFragment(0);
-                        mToolbar.setTitle(R.string.news);
                         break;
                     case R.id.item_three:
                         showFragment(0);
-                        mToolbar.setTitle(R.string.article);
                         break;
                 }
-                menuItem.setChecked(true);//点击了把它设为选中状态
-                mDrawerLayout.closeDrawers();//关闭抽屉
-                return true;
             }
         });
     }

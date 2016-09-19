@@ -55,6 +55,7 @@ public class DailyListFragment extends LazyFragment
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
+                mDailyListAdapter.allClear();
                 mPresenter.loadData();
             }
         });
@@ -81,5 +82,13 @@ public class DailyListFragment extends LazyFragment
             mSwipeRefreshLayout.setRefreshing(false);
         }
         Snackbar.make(getView(), e.getMessage(), Snackbar.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (mDailyListAdapter != null) {
+            mDailyListAdapter.destroy();
+        }
     }
 }

@@ -22,6 +22,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".ui.activity.LaunchActivity"
+            android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -34,6 +35,11 @@
             android:name=".ui.activity.MainActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
+
+        <!--详情页-->
+        <activity
+            android:name=".ui.activity.DailyDetailActivity"
+            android:screenOrientation="portrait"/>
 
     </application>
 
