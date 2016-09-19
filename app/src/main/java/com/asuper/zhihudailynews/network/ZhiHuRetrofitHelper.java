@@ -29,8 +29,8 @@ import rx.Observable;
 public class ZhiHuRetrofitHelper {
     private static final String TAG = "ZhiHuRetrofitHelper";
 
-    private static OkHttpClient mOkHttpClient;
-    private static ZhiHuDailyAPI mZhiHuApi;
+    private static OkHttpClient sOkHttpClient;
+    private static ZhiHuDailyAPI sZhiHuApi;
     private static ZhiHuRetrofitHelper instance;
 
     public static final int CACHE_TIME_LONG = 60 * 60 * 24 * 7;
@@ -47,12 +47,12 @@ public class ZhiHuRetrofitHelper {
 
                     Retrofit mRetrofit = new Retrofit.Builder()
                             .baseUrl(ApiHost.ZHIHU_LAST_URL.value())
-                            .client(mOkHttpClient)
+                            .client(sOkHttpClient)
                             .addConverterFactory(GsonConverterFactory.create())
                             .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                             .build();
 
-                    mZhiHuApi = mRetrofit.create(ZhiHuDailyAPI.class);
+                    sZhiHuApi = mRetrofit.create(ZhiHuDailyAPI.class);
                     instance = new ZhiHuRetrofitHelper();
                 }
             }
@@ -63,9 +63,9 @@ public class ZhiHuRetrofitHelper {
     private static void initOkHttpClient() {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.NONE);
-        if (mOkHttpClient == null) {
+        if (sOkHttpClient == null) {
             synchronized (ZhiHuRetrofitHelper.class) {
-                if (mOkHttpClient == null) {
+                if (sOkHttpClient == null) {
                     final Cache cache = new Cache(new File(new File(FileUtil.APP_CACHE_PATH), "HttpCache")
                             , 1024 * 1024 * 100);
 
@@ -117,7 +117,7 @@ public class ZhiHuRetrofitHelper {
                         }
                     };
 
-                    mOkHttpClient = new OkHttpClient.Builder()
+                    sOkHttpClient = new OkHttpClient.Builder()
                             .cache(cache)
                             .addInterceptor(mRewriteCacheControlInterceptor)
                             .addNetworkInterceptor(mRewriteCacheControlInterceptor)
@@ -134,11 +134,11 @@ public class ZhiHuRetrofitHelper {
 
 
     public Observable<DailyListBean> getLatestNews() {
-        return mZhiHuApi.getLatestNews();
+        return sZhiHuApi.getLatestNews();
     }
 
     public Observable<LaunchImageBean> getLaunchImage(String res) {
-        return mZhiHuApi.getLaunchImage(res);
+        return sZhiHuApi.getLaunchImage(res);
     }
 
 
