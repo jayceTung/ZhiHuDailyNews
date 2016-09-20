@@ -73,7 +73,6 @@ public class DailyListFragment extends LazyFragment
             mSwipeRefreshLayout.setRefreshing(false);
         }
         mDailyListAdapter.addData(dailyListBean.getStories());
-        Snackbar.make(getView(), dailyListBean.getDate(), Snackbar.LENGTH_SHORT).show();
     }
 
     @Override

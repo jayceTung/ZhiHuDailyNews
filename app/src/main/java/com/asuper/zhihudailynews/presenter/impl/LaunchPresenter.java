@@ -1,6 +1,7 @@
 package com.asuper.zhihudailynews.presenter.impl;
 
 import com.asuper.zhihudailynews.Bean.LaunchImageBean;
+import com.asuper.zhihudailynews.model.BaseModel;
 import com.asuper.zhihudailynews.model.LaunchModel;
 import com.asuper.zhihudailynews.presenter.ILaunchPresenter;
 import com.asuper.zhihudailynews.presenter.Presenter;
@@ -11,7 +12,7 @@ import com.asuper.zhihudailynews.view.LaunchView;
  * Created by Super on 2016/8/23.
  */
 public class LaunchPresenter implements Presenter<LaunchView>, ILaunchPresenter {
-    private LaunchModel mLaunchModel;
+    private BaseModel mLaunchModel;
     private LaunchView mLaunchView;
 
     public LaunchPresenter(LaunchView launchView) {

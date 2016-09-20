@@ -12,15 +12,16 @@ import rx.schedulers.Schedulers;
 /**
  * Created by Super on 2016/8/23.
  */
-public class LaunchModel {
+public class LaunchModel implements BaseModel {
     ILaunchPresenter mILaunchPresenter;
 
     public LaunchModel(ILaunchPresenter mILaunchPresenter) {
         this.mILaunchPresenter = mILaunchPresenter;
     }
 
-    public void loadData(String resSize) {
-        ZhiHuRetrofitHelper.getInstance().getLaunchImage(resSize)
+    @Override
+    public void loadData(Object... args) {
+        ZhiHuRetrofitHelper.getInstance().getLaunchImage((String) args[0])
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Subscriber<LaunchImageBean>() {

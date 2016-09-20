@@ -1,6 +1,7 @@
 package com.asuper.zhihudailynews.presenter.impl;
 
 import com.asuper.zhihudailynews.Bean.DailyListBean;
+import com.asuper.zhihudailynews.model.BaseModel;
 import com.asuper.zhihudailynews.model.LatestNewsModel;
 import com.asuper.zhihudailynews.presenter.ILatestNewsPresenter;
 import com.asuper.zhihudailynews.presenter.Presenter;
@@ -11,7 +12,7 @@ import com.asuper.zhihudailynews.view.LatestNewsView;
  */
 public class LatestNewsPresenter implements Presenter<LatestNewsView>, ILatestNewsPresenter {
     private LatestNewsView mLatestNewsView;
-    private LatestNewsModel mLatestNewsModel;
+    private BaseModel mLatestNewsModel;
 
     public LatestNewsPresenter(LatestNewsView mLatestNewsView) {
         mLatestNewsModel = new LatestNewsModel(this);

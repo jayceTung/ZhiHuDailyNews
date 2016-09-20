@@ -1,8 +1,8 @@
 package com.asuper.zhihudailynews.model;
 
-import com.asuper.zhihudailynews.Bean.DailyListBean;
+import com.asuper.zhihudailynews.Bean.DailyDetail;
 import com.asuper.zhihudailynews.network.ZhiHuRetrofitHelper;
-import com.asuper.zhihudailynews.presenter.ILatestNewsPresenter;
+import com.asuper.zhihudailynews.presenter.IDetailNewsPresenter;
 import com.asuper.zhihudailynews.utils.Log;
 
 import rx.Subscriber;
@@ -10,21 +10,21 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
 /**
- * Created by Super on 2016/8/25.
+ * Created by Super on 2016/9/20.
  */
-public class LatestNewsModel implements BaseModel{
-    private ILatestNewsPresenter mPresenter;
+public class DetailNewsModel implements BaseModel{
+    private IDetailNewsPresenter presenter;
 
-    public LatestNewsModel(ILatestNewsPresenter mPresenter) {
-        this.mPresenter = mPresenter;
+    public DetailNewsModel(IDetailNewsPresenter presenter) {
+        this.presenter = presenter;
     }
 
     @Override
     public void loadData(Object... args) {
-        ZhiHuRetrofitHelper.getInstance().getLatestNews()
+        ZhiHuRetrofitHelper.getInstance().getNewsDailyDetail((Integer) args[0])
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Subscriber<DailyListBean>() {
+                .subscribe(new Subscriber<DailyDetail>() {
                     @Override
                     public void onCompleted() {
 
@@ -33,13 +33,13 @@ public class LatestNewsModel implements BaseModel{
                     @Override
                     public void onError(Throwable e) {
                         Log.getStackTraceString(e);
-                        mPresenter.loadDataFailure(e);
+                        presenter.loadDataFailure(e);
                     }
 
                     @Override
-                    public void onNext(DailyListBean dailyListBean) {
-                        if (dailyListBean != null) {
-                            mPresenter.loadDataSuccess(dailyListBean);
+                    public void onNext(DailyDetail dailyDetail) {
+                        if (dailyDetail != null) {
+                            presenter.loadDataSuccess(dailyDetail);
                         }
                     }
                 });

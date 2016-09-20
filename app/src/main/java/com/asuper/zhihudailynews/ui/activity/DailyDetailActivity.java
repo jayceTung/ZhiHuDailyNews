@@ -18,7 +18,6 @@ public class DailyDetailActivity extends BaseSwipeBackActivity {
 
     @Override
     public void initView(Bundle savedInstanceState) {
-
     }
 
     @Override

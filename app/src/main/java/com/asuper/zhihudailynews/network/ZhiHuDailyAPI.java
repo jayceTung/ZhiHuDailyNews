@@ -1,6 +1,7 @@
 package com.asuper.zhihudailynews.network;
 
 
+import com.asuper.zhihudailynews.Bean.DailyDetail;
 import com.asuper.zhihudailynews.Bean.DailyListBean;
 import com.asuper.zhihudailynews.Bean.LaunchImageBean;
 
@@ -29,4 +30,13 @@ public interface ZhiHuDailyAPI {
      */
     @GET("start-image/{res}")
     Observable<LaunchImageBean> getLaunchImage(@Path("res") String res);
+
+    /**
+     * 获取日报详情数据
+     *
+     * @param id
+     * @return
+     */
+    @GET("story/{id}")
+    Observable<DailyDetail> getNewsDeatails(@Path("id") int id);
 }
