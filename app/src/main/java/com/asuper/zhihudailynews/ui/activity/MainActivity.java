@@ -3,7 +3,6 @@ package com.asuper.zhihudailynews.ui.activity;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -31,7 +30,6 @@ public class MainActivity extends AbsBaseActivity {
     @Bind(R.id.nav_view)
     BottomBar mNavigationView;
 
-    private ActionBarDrawerToggle mDrawerToggle;
     private List<Fragment> fragments = new ArrayList<>();
 
     @Override
@@ -54,7 +52,9 @@ public class MainActivity extends AbsBaseActivity {
     public void initToolBar() {
         Log.i(TAG, "initToolBar");
         getWindow().setBackgroundDrawable(null);
+
         mToolbar.setTitle(R.string.app_name);
+        setSupportActionBar(mToolbar);
 
         mNavigationView.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
