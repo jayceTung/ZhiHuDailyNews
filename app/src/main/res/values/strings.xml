@@ -4,6 +4,7 @@
     <string name="action_settings">更多选项</string>
     <string name="drawer_open">打开</string>
     <string name="drawer_close">关闭</string>
+    <string name="snack_retry">重试</string>
 
     <!-- 侧边栏目 -->
     <string name="index">要闻</string>

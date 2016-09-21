@@ -92,6 +92,12 @@ public class DailyDetailActivity extends BaseSwipeBackActivity
 
     @Override
     public void loadFailure(Throwable e) {
-        Snackbar.make(mCollapsingToolbarLayout, e.getMessage(), Snackbar.LENGTH_SHORT).show();
+        Snackbar.make(mCollapsingToolbarLayout, e.getMessage(), Snackbar.LENGTH_LONG)
+                .setAction(R.string.snack_retry, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        mPresent.loadData(getIntent().getIntExtra(Constant.EXTRA_DETAIL, 0));
+                    }
+                }).show();
     }
 }

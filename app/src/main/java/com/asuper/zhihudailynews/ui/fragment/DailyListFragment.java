@@ -4,6 +4,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.util.TypedValue;
+import android.view.View;
 
 import com.asuper.zhihudailynews.Bean.DailyListBean;
 import com.asuper.zhihudailynews.R;
@@ -80,7 +81,13 @@ public class DailyListFragment extends LazyFragment
         if (mSwipeRefreshLayout.isRefreshing()) {
             mSwipeRefreshLayout.setRefreshing(false);
         }
-        Snackbar.make(getView(), e.getMessage(), Snackbar.LENGTH_SHORT).show();
+        Snackbar.make(getView(), e.getMessage(), Snackbar.LENGTH_LONG)
+                .setAction(R.string.snack_retry, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        mPresenter.loadData();
+                    }
+                }).show();
     }
 
     @Override
