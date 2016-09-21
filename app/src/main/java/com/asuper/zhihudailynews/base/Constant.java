@@ -5,4 +5,6 @@ package com.asuper.zhihudailynews.base;
  */
 public class Constant {
     public static final String EXIT_APP_ACTION = "com.asuper.exit_app";
+
+    public static final String EXTRA_DETAIL = "extra_detail_id";
 }

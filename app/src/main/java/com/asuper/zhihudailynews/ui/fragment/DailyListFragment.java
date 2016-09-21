@@ -2,13 +2,13 @@ package com.asuper.zhihudailynews.ui.fragment;
 
 import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.TypedValue;
 
 import com.asuper.zhihudailynews.Bean.DailyListBean;
 import com.asuper.zhihudailynews.R;
 import com.asuper.zhihudailynews.base.LazyFragment;
+import com.asuper.zhihudailynews.base.WrapContentLinearLayoutManager;
 import com.asuper.zhihudailynews.presenter.ILatestNewsPresenter;
 import com.asuper.zhihudailynews.presenter.impl.LatestNewsPresenter;
 import com.asuper.zhihudailynews.ui.adapter.DailyListAdapter;
@@ -44,7 +44,7 @@ public class DailyListFragment extends LazyFragment
         mSwipeRefreshLayout.setProgressViewOffset(false, 0, (int) TypedValue
                 .applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources()
                         .getDisplayMetrics()));
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mRecyclerView.setLayoutManager(new WrapContentLinearLayoutManager(getActivity()));
         mDailyListAdapter = new DailyListAdapter(getActivity());
         mRecyclerView.setAdapter(mDailyListAdapter);
     }

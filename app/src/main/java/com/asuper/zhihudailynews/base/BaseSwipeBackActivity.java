@@ -1,5 +1,6 @@
 package com.asuper.zhihudailynews.base;
 
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
@@ -14,11 +15,13 @@ import butterknife.ButterKnife;
  */
 public abstract class BaseSwipeBackActivity extends SwipeBackActivity {
     public SwipeBackLayout mSwipeBackLayout;
+    private ExitAppReceiver mExitAppReceiver = new ExitAppReceiver();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
+        registerReceiver();
         //初始化黄油刀控件绑定框架
         ButterKnife.bind(this);
         //适配4.4状态栏
@@ -28,18 +31,26 @@ public abstract class BaseSwipeBackActivity extends SwipeBackActivity {
         mSwipeBackLayout.setEdgeTrackingEnabled(SwipeBackLayout.EDGE_LEFT);
         //初始化View
         initView(savedInstanceState);
-        initToolBar();
+        initEvent();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         ButterKnife.unbind(this);
+        unregisterReceiver(mExitAppReceiver);
+    }
+
+    private void registerReceiver() {
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(Constant.EXIT_APP_ACTION);
+        registerReceiver(mExitAppReceiver, filter);
     }
 
     public abstract int getLayoutId();
 
     public abstract void initView(Bundle savedInstanceState);
 
-    public abstract void initToolBar();
+
+    public abstract void initEvent();
 }

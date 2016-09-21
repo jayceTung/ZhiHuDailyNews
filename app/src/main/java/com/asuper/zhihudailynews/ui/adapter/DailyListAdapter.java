@@ -1,6 +1,7 @@
 package com.asuper.zhihudailynews.ui.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -13,6 +14,8 @@ import android.widget.TextView;
 
 import com.asuper.zhihudailynews.Bean.DailyBean;
 import com.asuper.zhihudailynews.R;
+import com.asuper.zhihudailynews.base.Constant;
+import com.asuper.zhihudailynews.ui.activity.DailyDetailActivity;
 import com.asuper.zhihudailynews.utils.ConfigConstants;
 import com.asuper.zhihudailynews.utils.DateUtil;
 import com.asuper.zhihudailynews.utils.Log;
@@ -126,13 +129,14 @@ public class DailyListAdapter extends RecyclerView.Adapter<DailyListAdapter.Item
 
                         @Override
                         public void run() {
-
 //                            mDailyDao.insertReadNew(dailyBean.getId() + "");
                         }
                     }).start();
                 }
                 //跳转到详情界面
-//                DailyDetailActivity.lanuch(mContext, dailyBean);
+                Intent intent = new Intent(mContext, DailyDetailActivity.class);
+                intent.putExtra(Constant.EXTRA_DETAIL, dailyBean.getId());
+                mContext.startActivity(intent);
             }
         });
     }
