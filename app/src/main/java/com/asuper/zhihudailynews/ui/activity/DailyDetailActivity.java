@@ -62,18 +62,17 @@ public class DailyDetailActivity extends BaseSwipeBackActivity
         // 初始化ToolBar
         setSupportActionBar(mToolbar);
         mCollapsingToolbarLayout.setTitleEnabled(true);
-
         mToolbar.setNavigationIcon(R.mipmap.back);
+    }
+
+    @Override
+    public void initEvent() {
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-    }
-
-    @Override
-    public void initEvent() {
         mPresent = new DetailNewsPresenter(this);
         mPresent.loadData(getIntent().getIntExtra(Constant.EXTRA_DETAIL, 0));
     }

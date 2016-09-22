@@ -1,5 +1,6 @@
 package com.asuper.zhihudailynews.base;
 
+import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -48,4 +49,10 @@ public abstract class AbsBaseActivity extends AppCompatActivity {
     public abstract void initView(Bundle savedInstanceState);
 
     public abstract void initToolBar();
+
+    public void gotoActivity(Class<?> clazz) {
+        Intent intent = getIntent();
+        intent.setClass(this, clazz);
+        startActivity(intent);
+    }
 }

@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">只知</string>
 
-    <string name="action_settings">更多选项</string>
+    <string name="action_settings">更多</string>
     <string name="drawer_open">打开</string>
     <string name="drawer_close">关闭</string>
     <string name="snack_retry">重试</string>
@@ -21,6 +21,15 @@
     <string name="friday">星期五</string>
     <string name="saturday">星期六</string>
     <string name="sunday">星期天</string>
+
+    <!-- more -->
+    <string name="more_author">Super14</string>
+    <string name="more_welcome">了解作者</string>
+    <string name="more_mode">夜间模式</string>
+    <string name="more_setting">设置</string>
+    <string name="more_about">关于app</string>
+
+
 
 
 </resources>
