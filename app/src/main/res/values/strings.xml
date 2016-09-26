@@ -9,7 +9,9 @@
     <!-- 侧边栏目 -->
     <string name="index">要闻</string>
     <string name="news">日报</string>
-    <string name="article">主题</string>
+    <string name="special">专题</string>
+    <string name="columnist">专栏</string>
+    <string name="article">文章</string>
 
     <!-- common -->
     <string name="month">月</string>

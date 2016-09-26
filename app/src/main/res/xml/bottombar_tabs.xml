@@ -7,14 +7,14 @@
     <tab
         id="@+id/item_two"
         icon="@mipmap/ic_profile_article"
-        title="@string/news"/>
+        title="@string/special"/>
     <tab
         id="@+id/item_three"
         icon="@mipmap/ic_profile_column"
-        title="@string/article"
+        title="@string/columnist"
         />
     <tab
-        id="@+id/item_three"
+        id="@+id/item_four"
         icon="@mipmap/ic_profile_column"
         title="@string/article"
         />

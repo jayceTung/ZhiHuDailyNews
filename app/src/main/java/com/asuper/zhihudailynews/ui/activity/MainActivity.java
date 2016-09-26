@@ -9,7 +9,10 @@ import android.view.MenuItem;
 
 import com.asuper.zhihudailynews.R;
 import com.asuper.zhihudailynews.base.AbsBaseActivity;
+import com.asuper.zhihudailynews.ui.fragment.ArticleFragment;
+import com.asuper.zhihudailynews.ui.fragment.ColumnistFragment;
 import com.asuper.zhihudailynews.ui.fragment.DailyListFragment;
+import com.asuper.zhihudailynews.ui.fragment.SpecialFragment;
 import com.asuper.zhihudailynews.utils.Log;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
@@ -46,6 +49,9 @@ public class MainActivity extends AbsBaseActivity {
     private void addFragment() {
         fragments.clear();
         fragments.add(new DailyListFragment());
+        fragments.add(new SpecialFragment());
+        fragments.add(new ColumnistFragment());
+        fragments.add(new ArticleFragment());
     }
 
     @Override
@@ -64,10 +70,13 @@ public class MainActivity extends AbsBaseActivity {
                         showFragment(0);
                         break;
                     case R.id.item_two:
-                        showFragment(0);
+                        showFragment(1);
                         break;
                     case R.id.item_three:
-                        showFragment(0);
+                        showFragment(2);
+                        break;
+                    case R.id.item_four:
+                        showFragment(3);
                         break;
                 }
             }
@@ -98,5 +107,13 @@ public class MainActivity extends AbsBaseActivity {
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         return super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (fragments != null) {
+            fragments.clear();
+        }
     }
 }
