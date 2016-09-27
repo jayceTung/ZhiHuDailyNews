@@ -4,6 +4,7 @@ package com.asuper.zhihudailynews.network;
 import com.asuper.zhihudailynews.Bean.DailyDetail;
 import com.asuper.zhihudailynews.Bean.DailyListBean;
 import com.asuper.zhihudailynews.Bean.LaunchImageBean;
+import com.asuper.zhihudailynews.Bean.ThemeBean;
 
 import retrofit2.http.GET;
 import retrofit2.http.Path;
@@ -39,4 +40,12 @@ public interface ZhiHuDailyAPI {
      */
     @GET("story/{id}")
     Observable<DailyDetail> getNewsDeatails(@Path("id") int id);
+
+    /**
+     * 获取专题日报
+     *
+     * @return
+     */
+    @GET("themes")
+    Observable<ThemeBean> getThemeType();
 }

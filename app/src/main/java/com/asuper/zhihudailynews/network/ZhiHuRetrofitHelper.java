@@ -4,6 +4,7 @@ package com.asuper.zhihudailynews.network;
 import com.asuper.zhihudailynews.Bean.DailyDetail;
 import com.asuper.zhihudailynews.Bean.DailyListBean;
 import com.asuper.zhihudailynews.Bean.LaunchImageBean;
+import com.asuper.zhihudailynews.Bean.ThemeBean;
 import com.asuper.zhihudailynews.utils.FileUtil;
 import com.asuper.zhihudailynews.utils.Log;
 
@@ -93,6 +94,8 @@ public class ZhiHuRetrofitHelper {
         return sZhiHuApi.getNewsDeatails(id);
     }
 
-
+    public Observable<ThemeBean> getThemeType() {
+        return sZhiHuApi.getThemeType();
+    }
 
 }
