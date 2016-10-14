@@ -11,7 +11,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.widget.TextView;
 
-import com.asuper.zhihudailynews.Bean.LaunchImageBean;
+import com.asuper.zhihudailynews.bean.LaunchImageBean;
 import com.asuper.zhihudailynews.R;
 import com.asuper.zhihudailynews.base.Constant;
 import com.asuper.zhihudailynews.base.ExitAppReceiver;

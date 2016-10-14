@@ -1,6 +1,6 @@
 package com.asuper.zhihudailynews.view;
 
-import com.asuper.zhihudailynews.Bean.LaunchImageBean;
+import com.asuper.zhihudailynews.bean.LaunchImageBean;
 
 /**
  * Created by Super on 2016/8/23.

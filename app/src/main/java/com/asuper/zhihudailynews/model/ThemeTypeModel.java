@@ -1,6 +1,6 @@
 package com.asuper.zhihudailynews.model;
 
-import com.asuper.zhihudailynews.Bean.ThemeBean;
+import com.asuper.zhihudailynews.bean.ThemeBean;
 import com.asuper.zhihudailynews.network.ZhiHuRetrofitHelper;
 import com.asuper.zhihudailynews.presenter.IThemeTypePresenter;
 import com.asuper.zhihudailynews.utils.Log;

@@ -1,6 +1,6 @@
 package com.asuper.zhihudailynews.utils;
 
-import com.asuper.zhihudailynews.Bean.DailyDetail;
+import com.asuper.zhihudailynews.bean.DailyDetail;
 
 import java.util.List;
 

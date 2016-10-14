@@ -8,7 +8,7 @@ import android.view.View;
 import android.webkit.WebView;
 import android.widget.TextView;
 
-import com.asuper.zhihudailynews.Bean.DailyDetail;
+import com.asuper.zhihudailynews.bean.DailyDetail;
 import com.asuper.zhihudailynews.R;
 import com.asuper.zhihudailynews.base.BaseSwipeBackActivity;
 import com.asuper.zhihudailynews.base.Constant;

@@ -1,6 +1,6 @@
 package com.asuper.zhihudailynews.model;
 
-import com.asuper.zhihudailynews.Bean.DailyListBean;
+import com.asuper.zhihudailynews.bean.DailyListBean;
 import com.asuper.zhihudailynews.network.ZhiHuRetrofitHelper;
 import com.asuper.zhihudailynews.presenter.ILatestNewsPresenter;
 import com.asuper.zhihudailynews.utils.Log;

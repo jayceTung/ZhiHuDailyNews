@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.asuper.zhihudailynews.Bean.DailyBean;
+import com.asuper.zhihudailynews.bean.DailyBean;
 import com.asuper.zhihudailynews.R;
 import com.asuper.zhihudailynews.utils.ConfigConstants;
 import com.asuper.zhihudailynews.utils.DateUtil;

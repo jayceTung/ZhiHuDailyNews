@@ -1,10 +1,10 @@
 package com.asuper.zhihudailynews.network;
 
 
-import com.asuper.zhihudailynews.Bean.DailyDetail;
-import com.asuper.zhihudailynews.Bean.DailyListBean;
-import com.asuper.zhihudailynews.Bean.LaunchImageBean;
-import com.asuper.zhihudailynews.Bean.ThemeBean;
+import com.asuper.zhihudailynews.bean.DailyDetail;
+import com.asuper.zhihudailynews.bean.DailyListBean;
+import com.asuper.zhihudailynews.bean.LaunchImageBean;
+import com.asuper.zhihudailynews.bean.ThemeBean;
 
 import retrofit2.http.GET;
 import retrofit2.http.Path;

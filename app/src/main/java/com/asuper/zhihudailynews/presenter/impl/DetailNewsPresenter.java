@@ -1,6 +1,6 @@
 package com.asuper.zhihudailynews.presenter.impl;
 
-import com.asuper.zhihudailynews.Bean.DailyDetail;
+import com.asuper.zhihudailynews.bean.DailyDetail;
 import com.asuper.zhihudailynews.model.BaseModel;
 import com.asuper.zhihudailynews.model.DetailNewsModel;
 import com.asuper.zhihudailynews.presenter.IDetailNewsPresenter;

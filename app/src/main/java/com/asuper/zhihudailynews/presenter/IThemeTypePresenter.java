@@ -1,6 +1,6 @@
 package com.asuper.zhihudailynews.presenter;
 
-import com.asuper.zhihudailynews.Bean.ThemeBean;
+import com.asuper.zhihudailynews.bean.ThemeBean;
 
 /**
  * Created by Super on 2016/9/27.

@@ -6,7 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.TypedValue;
 import android.view.View;
 
-import com.asuper.zhihudailynews.Bean.DailyListBean;
+import com.asuper.zhihudailynews.bean.DailyListBean;
 import com.asuper.zhihudailynews.R;
 import com.asuper.zhihudailynews.base.LazyFragment;
 import com.asuper.zhihudailynews.base.WrapContentLinearLayoutManager;

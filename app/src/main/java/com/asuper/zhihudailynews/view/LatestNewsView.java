@@ -1,6 +1,6 @@
 package com.asuper.zhihudailynews.view;
 
-import com.asuper.zhihudailynews.Bean.DailyListBean;
+import com.asuper.zhihudailynews.bean.DailyListBean;
 
 /**
  * Created by Super on 2016/8/25.
