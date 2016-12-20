@@ -23,6 +23,7 @@
     <string name="friday">星期五</string>
     <string name="saturday">星期六</string>
     <string name="sunday">星期天</string>
+    <string name="network_failed">网络连接失败</string>
 
     <!-- more -->
     <string name="more_author">Super14</string>

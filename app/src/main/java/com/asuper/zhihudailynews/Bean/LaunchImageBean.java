@@ -1,4 +1,4 @@
-package com.asuper.zhihudailynews.Bean;
+package com.asuper.zhihudailynews.bean;
 
 /**
  * Created by hcc on 16/4/4.

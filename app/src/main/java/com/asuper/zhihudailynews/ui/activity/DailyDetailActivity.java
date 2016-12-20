@@ -2,20 +2,20 @@ package com.asuper.zhihudailynews.ui.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.design.widget.Snackbar;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.TextView;
 
-import com.asuper.zhihudailynews.bean.DailyDetail;
 import com.asuper.zhihudailynews.R;
 import com.asuper.zhihudailynews.base.BaseSwipeBackActivity;
 import com.asuper.zhihudailynews.base.Constant;
+import com.asuper.zhihudailynews.bean.DailyDetail;
 import com.asuper.zhihudailynews.presenter.impl.DetailNewsPresenter;
 import com.asuper.zhihudailynews.utils.ConfigConstants;
 import com.asuper.zhihudailynews.utils.HtmlUtil;
 import com.asuper.zhihudailynews.utils.Log;
+import com.asuper.zhihudailynews.utils.NetWorkUtil;
 import com.asuper.zhihudailynews.view.DetailNewsView;
 import com.facebook.drawee.view.SimpleDraweeView;
 
@@ -91,12 +91,6 @@ public class DailyDetailActivity extends BaseSwipeBackActivity
 
     @Override
     public void loadFailure(Throwable e) {
-        Snackbar.make(mCollapsingToolbarLayout, e.getMessage(), Snackbar.LENGTH_LONG)
-                .setAction(R.string.snack_retry, new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        mPresent.loadData(getIntent().getIntExtra(Constant.EXTRA_DETAIL, 0));
-                    }
-                }).show();
+        NetWorkUtil.showErrorCode(e, this, mCollapsingToolbarLayout);
     }
 }

@@ -1,4 +1,4 @@
-package com.asuper.zhihudailynews.Bean;
+package com.asuper.zhihudailynews.bean;
 
 import java.util.List;
 
